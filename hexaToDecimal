@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace hexaToDecimal
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("please enter the number in hexaDecimal");
+            string s = Console.ReadLine();
+            int ans = 0;
+            s = s.ToUpper();
+            int j = 0;
+            for (int i = s.Length - 1; i >= 0; i--,j++)
+            {
+
+                int num = Convert.ToInt32(char.GetNumericValue(s[i]));
+                
+                if (num == -1)
+                {
+                    num = Convert.ToInt32(s[i] - 'A') + 10;
+                }
+                ans += num * Convert.ToInt32(Math.Pow(16, j));
+            }
+            Console.WriteLine(ans);
+        }
+    }
+}
